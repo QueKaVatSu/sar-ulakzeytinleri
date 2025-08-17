@@ -1,80 +1,145 @@
-body {
-    font-family: Arial, sans-serif;
+/* Genel Stil Ayarları */
+:root {
+    --primary-color: #4CAF50; /* Canlı yeşil */
+    --secondary-color: #8BC34A; /* Daha açık yeşil */
+    --text-color: #333;
+    --background-color: #f9f9f9;
+    --card-background: #fff;
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
-header {
-    background-color: #556B2F; /* Zeytin yeşili */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Header ve Navigasyon */
+.site-header {
+    background-color: var(--primary-color);
     color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-light);
 }
 
-nav a {
+.site-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
     color: #fff;
     text-decoration: none;
-    margin: 0 15px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-main {
-    padding: 2rem;
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Ana İçerik ve Ürün Kartları */
+.main-content {
+    padding: 3rem;
     text-align: center;
 }
 
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
 }
 
 .product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 250px;
-    text-align: center;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 350px;
 }
 
-.product-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
-.price {
-    display: block;
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.product-details h3 {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #556B2F;
-    margin: 10px 0;
+    margin-bottom: 0.5rem;
 }
 
-.add-to-cart {
-    background-color: #556B2F;
-    color: #fff;
+.product-details p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 1rem;
     border: none;
-    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.add-to-cart:hover {
-    background-color: #6B8E23;
+.add-to-cart-btn:hover {
+    background-color: var(--secondary-color);
 }
 
-footer {
+/* Footer */
+.site-footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1rem 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 2rem;
 }
