@@ -8,9 +8,9 @@
 </head>
 <body>
 
-    <header>
-        <h1>Zeytin Diyarı</h1>
-        <nav>
+    <header class="site-header">
+        <h1 class="site-title">Zeytin Diyarı</h1>
+        <nav class="main-nav">
             <a href="#">Anasayfa</a>
             <a href="#">Ürünler</a>
             <a href="#">Sepet</a>
@@ -18,31 +18,81 @@
         </nav>
     </header>
 
-    <main>
-        <h2>Ürünlerimiz</h2>
-        <div class="product-container">
-            <div class="product-card">
-                <img src="images/zeytin1.jpg" alt="Siyah Zeytin">
-                <h3>Siyah Zeytin</h3>
-                <p>En kaliteli siyah zeytinler.</p>
-                <span class="price">50 TL</span>
-                <button class="add-to-cart">Sepete Ekle</button>
+    <main class="main-content">
+        <h2 class="section-title">Ürünlerimiz</h2>
+        <div class="product-grid">
+            <div class="product-card" data-product-id="1">
+                <img class="product-image" src="images/zeytin1.jpg" alt="Siyah Zeytin">
+                <div class="product-details">
+                    <h3>Siyah Zeytin</h3>
+                    <p>En kaliteli siyah zeytinler.</p>
+                    <span class="product-price" data-price="50">50 TL</span>
+                    <button class="add-to-cart-btn">Sepete Ekle</button>
+                </div>
             </div>
 
-            <div class="product-card">
-                <img src="images/zeytin2.jpg" alt="Yeşil Zeytin">
-                <h3>Yeşil Zeytin</h3>
-                <p>Taptaze, lezzetli yeşil zeytinler.</p>
-                <span class="price">45 TL</span>
-                <button class="add-to-cart">Sepete Ekle</button>
+            <div class="product-card" data-product-id="2">
+                <img class="product-image" src="images/zeytin2.jpg" alt="Yeşil Zeytin">
+                <div class="product-details">
+                    <h3>Yeşil Zeytin</h3>
+                    <p>Taptaze, lezzetli yeşil zeytinler.</p>
+                    <span class="product-price" data-price="45">45 TL</span>
+                    <button class="add-to-cart-btn">Sepete Ekle</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="3">
+                <img class="product-image" src="images/zeytin3.jpg" alt="Organik Zeytinyağı">
+                <div class="product-details">
+                    <h3>Organik Zeytinyağı</h3>
+                    <p>Soğuk sıkım, sızma zeytinyağı.</p>
+                    <span class="product-price" data-price="120">120 TL</span>
+                    <button class="add-to-cart-btn">Sepete Ekle</button>
+                </div>
             </div>
 
+            <div class="product-card" data-product-id="4">
+                <img class="product-image" src="images/zeytin4.jpg" alt="Zeytin Ezmesi">
+                <div class="product-details">
+                    <h3>Zeytin Ezmesi</h3>
+                    <p>Kahvaltılarınız için özel lezzet.</p>
+                    <span class="product-price" data-price="30">30 TL</span>
+                    <button class="add-to-cart-btn">Sepete Ekle</button>
+                </div>
             </div>
+        </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2025 Zeytin Diyarı. Tüm hakları saklıdır.</p>
     </footer>
 
+    <script>
+        // Sepet işlevselliği için gerekli JavaScript kodu buraya gelecek.
+        // Bir önceki adımda yazdığımız kodlar bu yeni sınıf isimleriyle güncellenmeli.
+        // Örn: .add-to-cart -> .add-to-cart-btn
+
+        let cart = [];
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const productId = productCard.dataset.productId;
+                const productName = productCard.querySelector('h3').textContent;
+                const productPrice = parseFloat(productCard.querySelector('.product-price').dataset.price);
+
+                const product = {
+                    id: productId,
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                };
+
+                console.log('Sepete eklenen ürün:', product);
+            });
+        });
+
+    </script>
 </body>
 </html>
